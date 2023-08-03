@@ -7,7 +7,7 @@ let heading = document.querySelector("#level-title");
 
 //mobile responsive text.
 if(window.innerWidth <= 850){
-    heading.textContent = "start to play 🚩"
+    heading.textContent = "Start to play 🚩"
 }
 
 //adding click effects and playing sounds on button clicks using eventListener.

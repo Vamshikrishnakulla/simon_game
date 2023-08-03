@@ -9,6 +9,20 @@ body {
     font-weight: 900;
     color: rgb(247, 235, 146);
 }
+
+#start-button {
+    padding: 0 10px;
+    display: none;
+    color: #fff;
+    background-color: inherit;
+    border: 2px outset;
+    border-radius: 5px;
+}
+
+#start-button:hover {
+    box-shadow: 0 0 5px #fff;
+}
+
 .container {
     display: flex;
     height: 75vh;
@@ -50,4 +64,10 @@ body {
 .game-over{
     background-color: red;
     opacity: 0.8;
+}
+
+@media screen and (max-width: 850px){
+    #start-button {
+        display: inline-block;
+    }
 }

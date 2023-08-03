@@ -4,6 +4,12 @@ let level;
 let index;
 colorButtons = ["red","green","yellow","blue"];
 let heading = document.querySelector("#level-title");
+
+//mobile responsive text.
+if(window.innerWidth <= 850){
+    heading.textContent = "start to play 🚩"
+}
+
 //adding click effects and playing sounds on button clicks using eventListener.
 btns = document.getElementsByClassName("btn");
 for (let i = 0; i < btns.length; i++) {
@@ -39,6 +45,10 @@ function checkAnswer(index){
         setTimeout(function(){
             document.body.classList.remove("game-over");
         },200);
+        if(window.innerWidth <= 850){
+            document.querySelector("#start-button").style.display = "inline-block";
+            heading.textContent = "Game Over, press start to restart.";
+        }
     }
 }
 //adding click effects to button clicks.
@@ -49,13 +59,20 @@ function animate(button){
         }, 100);
 }
 
+//listening to the button clicks on screen size below 850px.
+document.querySelector("#start-button").addEventListener("click", initialCall);
+
 //listening keyboard keys.
-document.addEventListener("keydown", function(){
-      if(level === undefined){
+document.addEventListener("keydown", initialCall);
+
+//initial call function to start the game.
+function initialCall(){
+    if(level === undefined){
         level = 0;
+        document.querySelector("#start-button").style.display = "none";
         nextSequence();
       }
-});
+}
 
 //showing random colors to remember the sequence.
 function nextSequence(){
